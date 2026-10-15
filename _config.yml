@@ -1,0 +1,62 @@
+# ---------------------------------------------------------------------------
+#  Celebrating Jane: site settings
+#  Most of what you'll want to change lives in this one file.
+#  After editing, commit and push; GitHub Pages rebuilds in about a minute.
+# ---------------------------------------------------------------------------
+
+title: Celebrating Jane
+description: News and plans for a gathering to celebrate Jane's life.
+url: "https://celebratingjane.com"
+baseurl: ""
+
+# --- About Jane ------------------------------------------------------------
+jane:
+  name: "Jane Auld Bowen"              # Full name as you'd like it shown, e.g. "Jane Marie Doe"
+  years: "1926 - 2026                 # e.g. "1951 – 2026"  (leave "" to hide)
+  photo: "/assets/img/jane.jpg"
+  photo_alt: ""             # Short description of the photo, e.g. "Jane in her garden, 2019"
+  intro: ""                 # Optional short paragraph shown under her name. Markdown is fine.
+
+# --- The celebration -------------------------------------------------------
+# Leave date blank until it's set; the page will say details are coming.
+event:
+  date: "A celebration of Jane’s life is being planned for Spring 2027."                  # e.g. "Saturday, November 21, 2026"
+  time: ""                  # e.g. "2:00 – 5:00 pm"
+  place: ""                 # e.g. "Leach Botanical Garden"
+  address: ""               # e.g. "6704 SE 122nd Ave, Portland, OR"
+  map_url: ""               # Optional link to Google/Apple Maps
+  notes: ""                 # Optional: parking, dress, potluck, livestream link, etc. Markdown is fine.
+
+# --- Sign-up form ----------------------------------------------------------
+# Paste the Web App URL from Google Apps Script here (ends in /exec).
+# See README.md, "Set up the sign-up list".
+signup_endpoint: "https://script.google.com/macros/s/AKfycbyb2o_aKJjdU72X-SUhYSNTTm6lBfMEuuMcLJ2_TAukBxFTfQHdLqaEZ4qwSYmqu_H4/exec"
+signup_note: "Your name and email are kept by Jane's family and used only for news about the celebration."
+
+# --- Contact ---------------------------------------------------------------
+contact_email: ""           # Shown in the footer if set, e.g. "family@example.com"
+
+# Set to true to ask search engines not to list the site (people with the link can still visit).
+hide_from_search: true
+
+# ---------------------------------------------------------------------------
+#  Technical settings: you shouldn't need to change these
+# ---------------------------------------------------------------------------
+timezone: America/Los_Angeles
+markdown: kramdown
+kramdown:
+  input: GFM
+permalink: /updates/:year/:month/:day/:title/
+exclude:
+  - README.md
+  - google-apps-script/
+  - tests/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

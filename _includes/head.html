@@ -1,0 +1,26 @@
+{%- assign page_title = site.title -%}
+{%- if page.title and page.url != "/" -%}{%- assign page_title = page.title | append: " | " | append: site.title -%}{%- endif -%}
+{%- assign page_desc = site.description -%}
+{%- if page.excerpt and page.layout == "post" -%}{%- assign page_desc = page.excerpt | strip_html | strip_newlines | truncate: 160 -%}{%- endif -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_title | escape }}</title>
+<meta name="description" content="{{ page_desc | escape }}">
+{%- if site.hide_from_search %}
+<meta name="robots" content="noindex, nofollow">
+{%- endif %}
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta property="og:title" content="{{ page_title | escape }}">
+<meta property="og:description" content="{{ page_desc | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+{%- if site.jane.photo and site.jane.photo != "" %}
+<meta property="og:image" content="{{ site.jane.photo | absolute_url }}">
+{%- endif %}
+<meta name="theme-color" content="#F1F3EE">
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&display=swap">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">

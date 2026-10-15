@@ -1,0 +1,21 @@
+<h2 id="signup-heading">Get updates by email</h2>
+<p class="lede">We'll write when there's news about the celebration, and not otherwise.</p>
+<form class="signup" data-signup data-endpoint="{{ site.signup_endpoint }}" novalidate>
+  <div class="field">
+    <label for="su-name">Your name</label>
+    <input id="su-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+  </div>
+  <div class="field">
+    <label for="su-email">Email address</label>
+    <input id="su-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required>
+  </div>
+  <div class="hp" aria-hidden="true">
+    <label for="su-website">Leave this empty</label>
+    <input id="su-website" name="website" type="text" tabindex="-1" autocomplete="off">
+  </div>
+  <button type="submit">Add me to the list</button>
+  <p class="status" data-status role="status" aria-live="polite"></p>
+</form>
+{%- if site.signup_note and site.signup_note != "" %}
+<p class="fine">{{ site.signup_note }}</p>
+{%- endif %}

@@ -1,0 +1,83 @@
+---
+layout: default
+title: Home
+---
+{%- assign jane = site.jane -%}
+{%- assign event = site.event -%}
+<div class="page">
+
+  <header class="hero row">
+    <div class="gutter sprig-wrap">{% include sprig.html %}</div>
+    <div class="col">
+      <p class="preface">A celebration of the life of</p>
+      <h1 class="name">{{ jane.name }}</h1>
+      {%- if jane.years and jane.years != "" %}
+      <p class="years">{{ jane.years }}</p>
+      {%- endif %}
+      {%- if jane.intro and jane.intro != "" %}
+      <div class="intro prose">{{ jane.intro | markdownify }}</div>
+      {%- endif %}
+    </div>
+  </header>
+
+  {%- if jane.photo and jane.photo != "" %}
+  <figure class="photo row">
+    <div class="col"><img src="{{ jane.photo | relative_url }}" alt="{{ jane.photo_alt | escape }}" loading="eager"></div>
+  </figure>
+  {%- endif %}
+
+  <section class="event" aria-labelledby="event-heading">
+    <div class="row"><h2 class="col" id="event-heading">The gathering</h2></div>
+    {%- if event.date and event.date != "" %}
+    <dl class="facts">
+      <div class="row">
+        <dt class="gutter">When</dt>
+        <dd class="col">{{ event.date }}{% if event.time and event.time != "" %}<br>{{ event.time }}{% endif %}</dd>
+      </div>
+      {%- assign where = event.place | append: event.address -%}
+      {%- if where != "" %}
+      <div class="row">
+        <dt class="gutter">Where</dt>
+        <dd class="col">
+          {%- if event.place and event.place != "" %}{{ event.place }}{% endif %}
+          {%- if event.address and event.address != "" %}<br><span class="quiet">{{ event.address }}</span>{% endif %}
+          {%- if event.map_url and event.map_url != "" %}<br><a href="{{ event.map_url }}">Open in maps</a>{% endif %}
+        </dd>
+      </div>
+      {%- endif %}
+      {%- if event.notes and event.notes != "" %}
+      <div class="row">
+        <dt class="gutter">Good to know</dt>
+        <dd class="col prose">{{ event.notes | markdownify }}</dd>
+      </div>
+      {%- endif %}
+    </dl>
+    {%- else %}
+    <div class="row">
+      <p class="col tba">We're planning a gathering to celebrate {{ jane.name }}'s life. The date and place will be posted here, and sent to everyone on the email list, as soon as they're settled.</p>
+    </div>
+    {%- endif %}
+  </section>
+
+  <section class="band row" aria-labelledby="signup-heading">
+    <div class="col">
+      {% include signup.html %}
+    </div>
+  </section>
+
+  <section class="updates" id="updates" aria-labelledby="updates-heading">
+    <div class="row"><h2 class="col" id="updates-heading">Updates</h2></div>
+    {%- for post in site.posts %}
+    <article class="update row">
+      <p class="gutter date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time></p>
+      <div class="col">
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <div class="prose">{{ post.content }}</div>
+      </div>
+    </article>
+    {%- else %}
+    <div class="row"><p class="col quiet">Nothing posted yet. Add your email above and you'll hear as soon as there's news.</p></div>
+    {%- endfor %}
+  </section>
+
+</div>

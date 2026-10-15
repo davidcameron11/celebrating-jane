@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="page">
+  <header class="post-head row">
+    <p class="col crumb"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></p>
+    <p class="gutter date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></p>
+    <h1 class="col post-title">{{ page.title }}</h1>
+  </header>
+  <div class="row">
+    <article class="col prose">
+      {{ content }}
+    </article>
+  </div>
+  <div class="row"><p class="col back"><a href="{{ '/' | relative_url }}#updates">See all updates</a></p></div>
+  <section class="band row" aria-labelledby="signup-heading">
+    <div class="col">
+      {% include signup.html %}
+    </div>
+  </section>
+</div>

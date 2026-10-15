@@ -7,7 +7,7 @@
  *   2. adds a "Celebrating Jane" menu to the sheet for emailing an
  *      update (written as a Gmail draft) to everyone on the list.
  *
- * Setup steps are in README.md, "Set up the sign-up list".
+ * Setup steps are in setup.md, "Set up the sign-up list".
  */
 
 // ----- Settings -----------------------------------------------------------

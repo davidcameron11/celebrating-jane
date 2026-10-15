@@ -7,3 +7,6 @@ Gemfile.lock
 .DS_Store
 .idea/
 node_modules/
+
+# Local setup notes (not published)
+setup.md

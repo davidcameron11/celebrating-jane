@@ -73,7 +73,9 @@ p { margin: 0 0 1em; }
   margin-left: -0.04em; /* optical alignment of the capital */
 }
 .years { font-size: var(--step-1); font-weight: 300; color: var(--leaf-deep); margin: 0.9rem 0 0; font-variant-numeric: lining-nums; letter-spacing: 0.02em; }
-.intro { margin-top: 1.75rem; }
+.intro { margin-top: 1.75rem; max-width: 35rem; }
+/* The hero text may run into the right margin so Jane's full name stays on one line. */
+.hero .col { grid-column: 3 / 5; }
 .intro p:last-child { margin-bottom: 0; }
 
 .photo { margin: 0 0 3.5rem; }
@@ -173,6 +175,9 @@ section h2 { font-size: var(--step-2); font-weight: 300; color: var(--leaf-deep)
   :root { --gap: 0px; --cols: 1.25rem 0 minmax(0, 1fr) 1.25rem; --step-0: 1.125rem; }
   .gutter { grid-column: 3; }
   .hero { padding-top: 2rem; }
+  .hero .col { grid-column: 3; }
+  /* "Jane Auld Bowen" is about 7x the font size wide; scale it to fit the phone's width on one line. */
+  .name { font-size: min(var(--step-name), calc((100vw - 2.5rem) / 7.1)); }
   .sprig-wrap { justify-content: flex-start; margin-bottom: 1.25rem; }
   .sprig { max-width: none; width: auto; height: 9rem; margin: 0; }
   .facts dt { text-align: left; font-size: var(--step--1); padding: 0.75rem 0 0; }

@@ -30,7 +30,7 @@ event:
 
 # --- Sign-up form ----------------------------------------------------------
 # Paste the Web App URL from Google Apps Script here (ends in /exec).
-# See README.md, "Set up the sign-up list".
+# See setup.md, "Set up the sign-up list".
 signup_endpoint: "https://script.google.com/macros/s/AKfycbyb2o_aKJjdU72X-SUhYSNTTm6lBfMEuuMcLJ2_TAukBxFTfQHdLqaEZ4qwSYmqu_H4/exec"
 signup_note: "Your name and email are kept by Jane's family and used only for news about the celebration."
 
@@ -50,6 +50,7 @@ kramdown:
 permalink: /updates/:year/:month/:day/:title/
 exclude:
   - README.md
+  - setup.md
   - google-apps-script/
   - tests/
   - Gemfile

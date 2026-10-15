@@ -54,7 +54,13 @@ title: Home
     </dl>
     {%- else %}
     <div class="row">
-      <p class="col tba">We're planning a gathering to celebrate {{ jane.name }}'s life. The date and place will be posted here, and sent to everyone on the email list, as soon as they're settled.</p>
+      <p class="col tba">
+        {%- if event.summary and event.summary != "" -%}
+        {{ event.summary }} The date and place will be posted here, and sent to everyone on the email list, as soon as they're settled.
+        {%- else -%}
+        We're planning a gathering to celebrate {{ jane.name }}'s life. The date and place will be posted here, and sent to everyone on the email list, as soon as they're settled.
+        {%- endif -%}
+      </p>
     </div>
     {%- endif %}
   </section>

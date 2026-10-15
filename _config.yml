@@ -12,7 +12,7 @@ baseurl: ""
 # --- About Jane ------------------------------------------------------------
 jane:
   name: "Jane Auld Bowen"              # Full name as you'd like it shown, e.g. "Jane Marie Doe"
-  years: "1926 - 2026                 # e.g. "1951 – 2026"  (leave "" to hide)
+  years: "1926 – 2026"      # e.g. "1951 – 2026"  (leave "" to hide)
   photo: "/assets/img/jane.jpg"
   photo_alt: ""             # Short description of the photo, e.g. "Jane in her garden, 2019"
   intro: ""                 # Optional short paragraph shown under her name. Markdown is fine.
@@ -20,7 +20,8 @@ jane:
 # --- The celebration -------------------------------------------------------
 # Leave date blank until it's set; the page will say details are coming.
 event:
-  date: "A celebration of Jane’s life is being planned for Spring 2027."                  # e.g. "Saturday, November 21, 2026"
+  summary: "A celebration of Jane’s life is being planned for Spring 2027."  # Shown until a date is set. Leave "" for the default wording.
+  date: ""                  # e.g. "Saturday, November 21, 2026"  (once set, replaces the summary with When/Where details)
   time: ""                  # e.g. "2:00 – 5:00 pm"
   place: ""                 # e.g. "Leach Botanical Garden"
   address: ""               # e.g. "6704 SE 122nd Ave, Portland, OR"

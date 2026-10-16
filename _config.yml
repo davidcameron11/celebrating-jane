@@ -13,7 +13,7 @@ baseurl: ""
 jane:
   name: "Jane Auld Bowen"              # Full name as you'd like it shown, e.g. "Jane Marie Doe"
   years: "1926 – 2026"      # e.g. "1951 – 2026"  (leave "" to hide)
-  photo: "/assets/img/jane.jpg"
+  photo: "/assets/img/jane.jpeg"
   photo_alt: ""             # Short description of the photo, e.g. "Jane in her garden, 2019"
   intro: ""                 # Optional short paragraph shown under her name. Markdown is fine.
 

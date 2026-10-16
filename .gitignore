@@ -10,3 +10,6 @@ node_modules/
 
 # Local setup notes (not published)
 setup.md
+
+# Original documents (e.g. the obituary .docx); their text is published as pages
+originals/

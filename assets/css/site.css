@@ -27,6 +27,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -59,8 +60,15 @@ p { margin: 0 0 1em; }
 .gutter { grid-column: 2; }
 .col { grid-column: 3; }
 
+/* ---------- site navigation ---------- */
+.site-nav { padding: 1.5rem 0 0; }
+.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem; }
+.site-nav a { color: var(--ink-soft); text-decoration: none; font-size: 1.0625rem; padding: 0.35rem 0; display: inline-block; border-bottom: 1px solid transparent; }
+.site-nav a:hover { color: var(--ink); border-bottom-color: var(--rule); }
+.site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--leaf); }
+
 /* ---------- hero ---------- */
-.hero { padding: clamp(3rem, 10vh, 7rem) 0 clamp(2.5rem, 6vh, 4rem); align-items: end; }
+.hero { padding: clamp(2rem, 7vh, 5rem) 0 clamp(2.5rem, 6vh, 4rem); align-items: end; }
 .sprig-wrap { align-self: stretch; display: flex; justify-content: flex-end; align-items: flex-end; }
 .sprig { width: 100%; max-width: 9.5rem; height: auto; overflow: visible; margin-bottom: .4rem; }
 
@@ -104,13 +112,13 @@ section h2 { font-size: var(--step-2); font-weight: 300; color: var(--leaf-deep)
 .signup { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1rem; align-items: end; }
 .field { display: grid; gap: 0.3rem; min-width: 0; }
 .field label { font-size: var(--step--1); color: var(--ink-soft); }
-.field input {
+.field input:not([type=radio]):not([type=checkbox]) {
   font: inherit; font-size: 1.0625rem; color: var(--ink);
   background: var(--field);
   border: 1px solid #AEBBAA; border-radius: 3px;
   padding: 0.7rem 0.8rem; width: 100%; min-height: 3rem;
 }
-.field input:focus { outline: 2px solid var(--bloom); outline-offset: 1px; border-color: var(--leaf-deep); }
+.field input:not([type=radio]):focus { outline: 2px solid var(--bloom); outline-offset: 1px; border-color: var(--leaf-deep); }
 .field input[aria-invalid="true"] { border-color: var(--error); }
 .signup button {
   grid-column: 1 / -1; justify-self: start;
@@ -150,6 +158,50 @@ section h2 { font-size: var(--step-2); font-weight: 300; color: var(--leaf-deep)
 .post-title { grid-row: 2; font-size: var(--step-2); font-weight: 300; font-size: clamp(2rem, 1.4rem + 2.5vw, 3rem); }
 .back { margin: 2.5rem 0 3.5rem; }
 
+/* ---------- inner pages (obituary, remembrances) ---------- */
+.page-head { padding: clamp(2.5rem, 8vh, 5rem) 0 2rem; }
+.page-title { font-size: clamp(2.5rem, 1.6rem + 3.5vw, 4rem); font-weight: 200; letter-spacing: -0.01em; line-height: 1.05; }
+.page-subtitle { font-size: var(--step-1); font-weight: 300; color: var(--leaf-deep); margin: 0.75rem 0 0; }
+.page-lede { font-size: var(--step-1); font-weight: 300; line-height: 1.5; color: var(--ink-soft); margin: 1rem 0 0; max-width: 30em; }
+.page-body { padding-bottom: 3.5rem; }
+.page-body p { margin-bottom: 1.1em; hanging-punctuation: first; }
+
+/* ---------- remembrance form ---------- */
+.remember { display: grid; gap: 1.35rem; margin-top: 1.25rem; }
+.remember .field textarea {
+  font: inherit; font-size: 1.0625rem; line-height: 1.6; color: var(--ink);
+  background: var(--field); border: 1px solid #AEBBAA; border-radius: 3px;
+  padding: 0.75rem 0.85rem; width: 100%; min-height: 12rem; resize: vertical;
+}
+.remember .field textarea:focus { outline: 2px solid var(--bloom); outline-offset: 1px; border-color: var(--leaf-deep); }
+.remember .field textarea[aria-invalid="true"] { border-color: var(--error); }
+.remember .field input::placeholder { color: #8A968D; }
+.hint { display: block; font-size: var(--step--1); color: var(--ink-soft); margin: 0.1rem 0 0; line-height: 1.5; }
+.optional { color: var(--ink-soft); font-style: italic; }
+.choice { border: 0; margin: 0; padding: 0; min-width: 0; gap: 0.6rem; }
+.choice legend { font-size: var(--step--1); color: var(--ink-soft); padding: 0; margin-bottom: 0.4rem; }
+.option { display: grid; grid-template-columns: 1.25rem 1fr; gap: 0.7rem; align-items: start; cursor: pointer; line-height: 1.45; }
+.option input { width: 1.1rem; height: 1.1rem; margin: 0.2rem 0 0; accent-color: var(--leaf-deep); }
+.option .hint { margin-top: 0.15rem; }
+.remember button[type=submit] {
+  justify-self: start;
+  font: inherit; font-size: 1.0625rem; font-weight: 600; letter-spacing: 0.01em;
+  color: #FFFFFF; background: var(--leaf-deep);
+  border: 0; border-radius: 3px; padding: 0.8rem 1.5rem; min-height: 3rem; cursor: pointer;
+}
+.remember button[type=submit]:hover { background: var(--ink); }
+.remember button[type=submit]:disabled { opacity: 0.7; cursor: progress; }
+.remember .status { margin-top: -0.5rem; }
+.link-button { font: inherit; color: var(--leaf-deep); background: none; border: 0; padding: 0; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; cursor: pointer; }
+.link-button:hover { color: var(--ink); }
+
+/* ---------- shared remembrances ---------- */
+.remembrance { padding: 1.5rem 0 0.5rem; }
+.remembrance + .remembrance .col { border-top: 1px solid var(--rule); padding-top: 1.5rem; }
+.remembrance + .remembrance .gutter { padding-top: 1.5rem; }
+.remembrance .col p { margin-bottom: 0.8em; }
+.signature { font-style: italic; color: var(--leaf-deep); margin-top: 0.25rem; }
+
 /* ---------- footer ---------- */
 .site-footer { display: grid; grid-template-columns: var(--cols); column-gap: var(--gap); padding: 0 0 3rem; font-size: var(--step--1); }
 .site-footer p { margin: 0 0 0.4rem; }
@@ -186,6 +238,10 @@ section h2 { font-size: var(--step-2); font-weight: 300; color: var(--leaf-deep)
   .date { text-align: left; padding-top: 0; }
   .update + .update .gutter { padding-top: 1.5rem; border-top: 1px solid var(--rule); }
   .update + .update .col { border-top: 0; padding-top: 0.25rem; }
+  .remembrance + .remembrance .gutter { padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+  .remembrance + .remembrance .col { border-top: 0; padding-top: 0.25rem; }
+  .site-nav { padding-top: 1rem; }
+  .remember button[type=submit] { justify-self: stretch; }
   .post-head .date { grid-row: auto; padding-top: 0; }
   .post-title { grid-row: auto; }
   .signup { grid-template-columns: 1fr; }

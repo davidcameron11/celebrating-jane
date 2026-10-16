@@ -28,8 +28,9 @@ event:
   map_url: ""               # Optional link to Google/Apple Maps
   notes: ""                 # Optional: parking, dress, potluck, livestream link, etc. Markdown is fine.
 
-# --- Sign-up form ----------------------------------------------------------
+# --- Sign-up form and remembrances ----------------------------------------
 # Paste the Web App URL from Google Apps Script here (ends in /exec).
+# The same URL handles email sign-ups and remembrances.
 # See setup.md, "Set up the sign-up list".
 signup_endpoint: "https://script.google.com/macros/s/AKfycbyb2o_aKJjdU72X-SUhYSNTTm6lBfMEuuMcLJ2_TAukBxFTfQHdLqaEZ4qwSYmqu_H4/exec"
 signup_note: "Your name and email are kept by Jane's family and used only for news about the celebration."
@@ -51,6 +52,7 @@ permalink: /updates/:year/:month/:day/:title/
 exclude:
   - README.md
   - setup.md
+  - originals/
   - google-apps-script/
   - tests/
   - Gemfile

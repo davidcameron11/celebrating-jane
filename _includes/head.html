@@ -1,7 +1,7 @@
 {%- assign page_title = site.title -%}
 {%- if page.title and page.url != "/" -%}{%- assign page_title = page.title | append: " | " | append: site.title -%}{%- endif -%}
 {%- assign page_desc = site.description -%}
-{%- if page.excerpt and page.layout == "post" -%}{%- assign page_desc = page.excerpt | strip_html | strip_newlines | truncate: 160 -%}{%- endif -%}
+{%- if page.description -%}{%- assign page_desc = page.description -%}{%- elsif page.excerpt and page.layout == "post" -%}{%- assign page_desc = page.excerpt | strip_html | strip_newlines | truncate: 160 -%}{%- endif -%}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page_title | escape }}</title>

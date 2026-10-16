@@ -1,0 +1,65 @@
+---
+layout: default
+title: Remembrances
+permalink: /remembrances/
+description: Memories of Jane Auld Bowen shared by family and friends.
+scripts:
+  - /assets/js/remembrances.js
+---
+<div class="page">
+  <header class="page-head row">
+    <h1 class="col page-title">Remembrances</h1>
+    <p class="col page-lede">A memory, a story, or a few words about what Jane meant to you. You can share it with everyone who visits this site, or with Jane's family only.</p>
+  </header>
+
+  <section class="band row" aria-labelledby="share-heading">
+    <div class="col">
+      <h2 id="share-heading">Share a remembrance</h2>
+      <form class="remember" data-remember data-endpoint="{{ site.signup_endpoint }}" novalidate>
+        <div class="field">
+          <label for="rm-text">Your remembrance</label>
+          <textarea id="rm-text" name="text" rows="8" maxlength="5000" required></textarea>
+        </div>
+        <div class="field">
+          <label for="rm-name">Sign as</label>
+          <input id="rm-name" name="name" type="text" maxlength="80" autocomplete="off" placeholder="For example, Ann S." aria-describedby="rm-name-hint" required>
+          <p class="hint" id="rm-name-hint">How your name will appear. We suggest your first name and last initial.</p>
+        </div>
+        <fieldset class="field choice">
+          <legend>Who can read it</legend>
+          <label class="option">
+            <input type="radio" name="visibility" value="public" checked>
+            <span>Everyone who visits this site<span class="hint">It will appear on this page once the family has read it.</span></span>
+          </label>
+          <label class="option">
+            <input type="radio" name="visibility" value="family">
+            <span>Jane's family only<span class="hint">It goes to the family and is never shown on the site.</span></span>
+          </label>
+        </fieldset>
+        <div class="field">
+          <label for="rm-email">Your email <span class="optional">(optional)</span></label>
+          <input id="rm-email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" aria-describedby="rm-email-hint">
+          <p class="hint" id="rm-email-hint">Never shown on the site. Lets the family write back to you.</p>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="rm-website">Leave this empty</label>
+          <input id="rm-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit">Share remembrance</button>
+        <p class="status" data-status role="status" aria-live="polite"></p>
+      </form>
+      <div class="remember-thanks" data-thanks hidden>
+        <p class="thanks" tabindex="-1" data-thanks-text></p>
+        <button type="button" class="link-button" data-again>Write another remembrance</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="remembrances" aria-labelledby="shared-heading">
+    <div class="row"><h2 class="col" id="shared-heading">Shared remembrances</h2></div>
+    <div data-list data-endpoint="{{ site.signup_endpoint }}">
+      <div class="row"><p class="col quiet" data-list-status>Loading remembrances…</p></div>
+    </div>
+    <noscript><div class="row"><p class="col quiet">Remembrances need JavaScript to load. Please turn it on, or try another browser.</p></div></noscript>
+  </section>
+</div>

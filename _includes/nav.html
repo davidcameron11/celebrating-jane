@@ -1,0 +1,13 @@
+<nav class="site-nav row" aria-label="Site">
+  <ul class="col">
+    {%- assign nav_items = "/|Home,/obituary/|Obituary,/remembrances/|Remembrances" | split: "," -%}
+    {%- for item in nav_items -%}
+      {%- assign parts = item | split: "|" -%}
+      {%- assign href = parts[0] -%}
+      {%- assign current = false -%}
+      {%- if page.url == href -%}{%- assign current = true -%}{%- endif -%}
+      {%- if href == "/" and page.layout == "post" -%}{%- assign current = true -%}{%- endif %}
+    <li><a href="{{ href | relative_url }}"{% if current %} aria-current="page"{% endif %}>{{ parts[1] }}</a></li>
+    {%- endfor %}
+  </ul>
+</nav>

@@ -20,11 +20,11 @@ jane:
 # --- The celebration -------------------------------------------------------
 # Leave date blank until it's set; the page will say details are coming.
 event:
-  summary: "A celebration of Jane’s life is being planned for Spring 2027."  # Shown until a date is set. Leave "" for the default wording.
-  date: ""                  # e.g. "Saturday, November 21, 2026"  (once set, replaces the summary with When/Where details)
+  summary: "Planning is underway. Please check back for details closer to the service. "  # Shown until a date is set. Leave "" for the default wording.
+  date: "Saturday, May 22nd, 2027"                  # e.g. "Saturday, November 21, 2026"  (once set, replaces the summary with When/Where details)
   time: ""                  # e.g. "2:00 – 5:00 pm"
-  place: ""                 # e.g. "Leach Botanical Garden"
-  address: ""               # e.g. "6704 SE 122nd Ave, Portland, OR"
+  place: "Unitarian Universalist Church"                 # e.g. "Leach Botanical Garden"
+  address: "4340 W Whistalks Wy, Spokane, WA 99224"               # e.g. "6704 SE 122nd Ave, Portland, OR"
   map_url: ""               # Optional link to Google/Apple Maps
   notes: ""                 # Optional: parking, dress, potluck, livestream link, etc. Markdown is fine.
 
